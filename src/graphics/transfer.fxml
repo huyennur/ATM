@@ -20,7 +20,7 @@
             <Image url="@../ATMimages/back2.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="confirmTransfer" layoutX="494.0" layoutY="346.0" mnemonicParsing="false" onAction="#confirmTransferation" prefHeight="40.0" prefWidth="63.0" text="Confirm" />
+      <Button fx:id="confirmTransfer" layoutX="334.0" layoutY="341.0" mnemonicParsing="false" onAction="#confirmTransferation" prefHeight="40.0" prefWidth="63.0" text="Confirm" />
       <ImageView fitHeight="162.0" fitWidth="165.0" layoutX="347.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../ATMimages/icon1.jpg" />
@@ -48,5 +48,11 @@
          </font>
       </Button>
       <TextField fx:id="enterAmountTransfer" layoutX="385.0" layoutY="241.0" prefHeight="40.0" prefWidth="198.0" />
+      <Button fx:id="endTransfer" layoutX="446.0" layoutY="341.0" mnemonicParsing="false" onAction="#endTransferation" prefHeight="40.0" prefWidth="63.0" text="End" />
+      <Text fx:id="textTransfer" fill="#b06d6d" layoutX="269.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="318.98388671875">
+         <font>
+            <Font name="Chalkboard SE Light" size="20.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

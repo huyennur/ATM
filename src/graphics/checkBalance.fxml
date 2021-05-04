@@ -20,13 +20,13 @@
             <Image url="@../ATMimages/back2.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="endCheckBalance" layoutX="494.0" layoutY="309.0" mnemonicParsing="false" onAction="#endBalanceChecking" prefHeight="40.0" prefWidth="63.0" text="End" />
+      <Button fx:id="endCheckBalance" layoutX="494.0" layoutY="346.0" mnemonicParsing="false" onAction="#endBalanceChecking" prefHeight="40.0" prefWidth="63.0" text="End" />
       <ImageView fitHeight="162.0" fitWidth="165.0" layoutX="347.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../ATMimages/icon1.jpg" />
          </image>
       </ImageView>
-      <Text fill="#b06d6d" layoutX="277.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your balance in the account is: " wrappingWidth="301.98388671875">
+      <Text fill="#b06d6d" layoutX="277.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your balance in the account is: " wrappingWidth="301.98388671875">
          <font>
             <Font name="Chalkboard SE Light" size="20.0" />
          </font>
@@ -36,10 +36,11 @@
             <Font name="Chalkboard SE Light" size="17.0" />
          </font>
       </Text>
-      <Label fx:id="showBalance" layoutX="348.0" layoutY="248.0" prefHeight="47.0" prefWidth="156.0" textAlignment="CENTER">
+      <Label fx:id="showBalance" layoutX="350.0" layoutY="280.0" prefHeight="47.0" prefWidth="156.0" textAlignment="CENTER" textFill="#b06d6d">
          <font>
-            <Font size="38.0" />
+            <Font name="Chalkboard SE Light" size="38.0" />
          </font>
       </Label>
+      <Button fx:id="check" layoutX="384.0" layoutY="179.0" mnemonicParsing="false" onAction="#BalanceChecking" prefHeight="40.0" prefWidth="63.0" text="Check" />
    </children>
 </Pane>

@@ -43,14 +43,12 @@ public class Account {
 
     //kiem tra thong tin tai khoan
     public String checkAccount() {
-        return "Account ID " + ID + ":" +
-                "\n\tName: " + name +
-                "\n\tBalance: " + balance;
+        return String.valueOf(balance);
     }
 
     //chuyen khoan
     public String transfer(double amount, int id_transfer, ArrayList<Account> list) {
-        if (checkPIN()) return "The transaction is canceled";
+        //if (checkPIN()) return "The transaction is canceled";
 
         boolean check = true;
         int index = 0;
@@ -76,7 +74,7 @@ public class Account {
         }
     }
 
-    private boolean checkPIN() {
+    public boolean checkPIN() {
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 5; i++) {
             System.out.print("Enter PIN: ");
@@ -93,7 +91,7 @@ public class Account {
 
     //rut tien
     public String withdraw(double amount) {
-        if (checkPIN()) return "The transaction is canceled";
+        //if (checkPIN()) return "The transaction is canceled";
 
         if (amount > balance) {
             return "The amount exceeds the balance!";
@@ -107,7 +105,7 @@ public class Account {
 
     //thanh toan hoa don
     public String payBill(double amount) {
-        if (checkPIN()) return "The transaction is canceled";
+        //if (checkPIN()) return "The transaction is canceled";
 
         if (amount > balance) {
             return "The amount exceeds the balance!";

@@ -12,14 +12,10 @@ import java.io.IOException;
 
 public class ChangePINController {
 
-    ATMController atm = new ATMController();
     Account account = new Account();
 
     @FXML
     private Button confirmChangePIN;
-
-    @FXML
-    private Text wrongOldPINnotify;
 
     @FXML
     private TextField enterOldPIN;
@@ -30,26 +26,28 @@ public class ChangePINController {
     @FXML
     private TextField reEnterNewPIN;
 
-    private int getOldPIN() {
+    @FXML
+    private Button endChangePIN;
+
+    @FXML
+    private Text wrongOldPINnotify;
+
+    @FXML
+    public void confirmPINchanging(ActionEvent event) throws IOException {
         int oldPIN = Integer.parseInt(enterOldPIN.getText());
-        return oldPIN;
-    }
-
-    private int getNewPIN() {
         int newPIN = Integer.parseInt(enterNewPIN.getText());
-        return newPIN;
-    }
-
-    private int getReNewPIN() {
-        int newPIN = Integer.parseInt(reEnterNewPIN.getText());
-        return newPIN;
+        int renewPIN = Integer.parseInt(reEnterNewPIN.getText());
+        if (event.getSource() == confirmChangePIN) {
+            wrongOldPINnotify.setText(account.changePIN(oldPIN, newPIN, renewPIN));
+        }
     }
 
     @FXML
-    void confirmPINchanging(ActionEvent event) throws IOException {
+    public void endPINchanging(ActionEvent event) throws IOException {
         Main main = new Main();
-        wrongOldPINnotify.setText(account.changePIN(getOldPIN(), getNewPIN(), getReNewPIN()));
-        main.changeScene("../graphics/afterChangePIN.fxml");
+        if(event.getSource() == endChangePIN) {
+            main.changeScene("../graphics/mainATM.fxml");
+        }
     }
 
 }

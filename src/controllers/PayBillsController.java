@@ -46,8 +46,18 @@ public class PayBillsController {
     private Button reenterPINOKPayBills;
 
     @FXML
-    public void choosingElectricBill(ActionEvent event) {
+    public void endPayingBills(ActionEvent event) throws IOException {
+        Main main = new Main();
+        if(event.getSource() == endPayBills) {
+            main.changeScene("../graphics/mainATM.fxml");
+        }
+    }
 
+    @FXML
+    public void choosingElectricBill(ActionEvent event) {
+        if(event.getSource() == electricityBills) {
+
+        }
     }
 
     @FXML
@@ -57,22 +67,7 @@ public class PayBillsController {
 
     @FXML
     public void confirmBillsPaying(ActionEvent event) throws IOException {
-        Main main = new Main();
-        if(event.getSource() == confirmPayBills) {
-            main.changeScene("../graphics/afterPayBills.fxml");
-        }
-    }
-
-    @FXML
-    public void confirmReenterPINPayBills(ActionEvent event) throws IOException {
 
     }
 
-    @FXML
-    public void endShowingPayBills(ActionEvent event) throws IOException {
-        Main main = new Main();
-        if(event.getSource() == endPayBills) {
-            main.changeScene("../graphics/mainATM.fxml");
-        }
-    }
 }

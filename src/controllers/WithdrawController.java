@@ -6,19 +6,17 @@ import ATM.Management;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.util.ArrayList;
+
 
 public class WithdrawController {
 
     Management m = new Management();
-    ArrayList<Account> list = m.insertData();
-    ATMController atm = new ATMController();
     Account account = new Account();
+    ArrayList<Account> list = m.insertData();
 
     @FXML
     private TextField enterAmount;
@@ -27,53 +25,28 @@ public class WithdrawController {
     private Button confirmWithdraw;
 
     @FXML
-    private Button endTransitionWithdraw;
+    private Button endWithdraw;
 
     @FXML
-    private Text confirmStateWithdraw;
-
-    @FXML
-    private Text showBalanceTransitionWithdraw;
-
-    @FXML
-    private TextField reenterPINWithdraw;
-
-    @FXML
-    private Label reenterPINstateWithdraw;
-
-    @FXML
-    private Button reenterPINOKwithdraw;
-
-    private double getAmount() {
-        double amount = Integer.parseInt(enterAmount.getText());
-        return amount;
-    }
+    private Text textWithdraw;
 
     @FXML
     public void confirmWithdrawal(ActionEvent event) throws IOException {
-        Main main = new Main();
+        double amount = Integer.parseInt(enterAmount.getText());
         if (event.getSource() == confirmWithdraw) {
-            main.changeScene("../graphics/afterWithdraw.fxml");
+            textWithdraw.setText(account.withdraw(amount));
+            enterAmount.clear();
+            m.updateData(list);
         }
     }
 
     @FXML
-    void confirmReenterPINWithdraw(ActionEvent event) throws IOException {
-        int pin = Integer.parseInt(reenterPINWithdraw.getText());
-        if (pin == atm.getPass()) {
-            confirmStateWithdraw.setText(account.withdraw(getAmount()));
-        } else {
-            reenterPINstateWithdraw.setText("Invalid PIN");
-            reenterPINWithdraw.clear();
-        }
-    }
-
-    @FXML
-    void endShowingTransitionWithdraw(ActionEvent event) throws IOException {
+    public void endWithdrawal(ActionEvent event) throws IOException {
         Main main = new Main();
-        if(event.getSource() == endTransitionWithdraw) {
+        if(event.getSource() == endWithdraw) {
             main.changeScene("../graphics/mainATM.fxml");
         }
     }
+
 
 }

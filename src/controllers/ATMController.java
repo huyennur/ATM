@@ -10,12 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import static javafx.application.Platform.exit;
 
 public class ATMController implements Initializable {
 
@@ -39,11 +36,6 @@ public class ATMController implements Initializable {
     @FXML
     private PasswordField pin;
 
-    public int getPass() {
-        int pass = Integer.parseInt(pin.getText());
-        return pass;
-    }
-
     @FXML
     public void userLogin(ActionEvent event) throws Exception {
         Main main = new Main();
@@ -51,12 +43,12 @@ public class ATMController implements Initializable {
         ArrayList<Account> list = m.insertData();
         for (int i = 0; i < 5; i++) {
             int textID = Integer.parseInt(id.getText());
+            int pass = Integer.parseInt(pin.getText());
             if (textID > list.size()) {
                 inform.setText("ID is invalid");
             }
 
-
-            if (list.get(textID - 1).getPassword() == getPass()) {
+            if (list.get(textID - 1).getPassword() == pass) {
                 inform.setText("Login success");
                 main.changeScene("../graphics/afterLogin.fxml");
             } else {
@@ -68,7 +60,5 @@ public class ATMController implements Initializable {
         inform.setText("Login unsuccessfully && the card is locked");
         main.stop();
     }
-
-
 
 }
