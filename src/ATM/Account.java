@@ -7,7 +7,7 @@ public class Account {
     private int ID; //STK
     private String name;
     private int password;
-    private double balance; //so du
+    public double balance; //so du
 
     public int getID() {
         return ID;
@@ -35,6 +35,7 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+        System.out.println(balance);
     }
 
     public void setPassword(int password) {
@@ -43,6 +44,7 @@ public class Account {
 
     //kiem tra thong tin tai khoan
     public String checkAccount() {
+        System.out.println(balance);
         return String.valueOf(balance);
     }
 

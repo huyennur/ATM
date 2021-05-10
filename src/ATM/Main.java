@@ -10,7 +10,9 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private static Stage stg;
+    public static Stage stg;
+    public static Management m = new Management();
+    public static Account account = new Account();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -30,5 +32,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
     }
 }

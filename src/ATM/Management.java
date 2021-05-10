@@ -9,7 +9,7 @@ public class Management {
     public ArrayList<Account> insertData() {
         ArrayList<Account> listAcc = new ArrayList<>();
         try {
-            Scanner scf = new Scanner(new File("/Users/dongochuyen/Desktop/ATM/src/ATM/Account.txt"));
+            Scanner scf = new Scanner(new File("D:\\react project\\ATM\\src\\ATM\\Account.txt"));
 
             while (scf.hasNextLine()){
                 Account a = new Account();
@@ -68,7 +68,7 @@ public class Management {
 
     public void updateData(ArrayList<Account> list) {
         try {
-            FileWriter fw = new FileWriter("/Users/dongochuyen/Desktop/ATM/src/ATM/Account.txt");
+            FileWriter fw = new FileWriter("D:\\react project\\ATM\\src\\ATM\\Account.txt");
             for (Account a : list) {
                 fw.write(a.getID() + "\t" + a.getName() + "\t" + a.getPassword() + "\t" + a.getBalance() + "\n");
             }

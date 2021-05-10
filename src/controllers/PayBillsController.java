@@ -3,12 +3,16 @@ package controllers;
 import ATM.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+
+import static ATM.Main.stg;
 
 public class PayBillsController {
 
@@ -47,9 +51,11 @@ public class PayBillsController {
 
     @FXML
     public void endPayingBills(ActionEvent event) throws IOException {
-        Main main = new Main();
+        //Main main = new Main();
         if(event.getSource() == endPayBills) {
-            main.changeScene("../graphics/mainATM.fxml");
+            //main.changeScene("../graphics/afterLogin.fxml");
+            Parent pane = FXMLLoader.load(getClass().getResource("../graphics/afterLogin.fxml"));
+            stg.getScene().setRoot(pane);
         }
     }
 
