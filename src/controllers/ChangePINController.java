@@ -4,15 +4,18 @@ import ATM.Account;
 import ATM.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class ChangePINController {
+import static ATM.Main.account;
+import static ATM.Main.stg;
 
-    Account account = new Account();
+public class ChangePINController {
 
     @FXML
     private Button confirmChangePIN;
@@ -44,9 +47,9 @@ public class ChangePINController {
 
     @FXML
     public void endPINchanging(ActionEvent event) throws IOException {
-        Main main = new Main();
         if(event.getSource() == endChangePIN) {
-            main.changeScene("../graphics/mainATM.fxml");
+            Parent pane = FXMLLoader.load(getClass().getResource("../graphics/afterLogin.fxml"));
+            stg.getScene().setRoot(pane);
         }
     }
 

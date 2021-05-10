@@ -56,7 +56,7 @@ public class Management {
             else System.out.println("PIN is incorrect!");
         }
 
-        System.out.println("Login unsuccess && the card is locked.");
+        System.out.println("Login unsuccessfully && the card is locked.");
 
 
         return null;
@@ -73,7 +73,7 @@ public class Management {
                 fw.write(a.getID() + "\t" + a.getName() + "\t" + a.getPassword() + "\t" + a.getBalance() + "\n");
             }
             fw.close();
-            System.out.println("Update success!");
+            System.out.println("Update successfully!");
         } catch (Exception e) {
             e.printStackTrace();
         }

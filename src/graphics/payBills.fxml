@@ -59,7 +59,7 @@
          </font>
       </Button>
       <Button fx:id="endPayBills" layoutX="453.0" layoutY="350.0" mnemonicParsing="false" onAction="#endPayingBills" prefHeight="40.0" prefWidth="63.0" text="End" />
-      <Text fx:id="textPayBill" fill="#b06d6d" layoutX="270.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="318.98388671875">
+      <Text fx:id="textPayBill" fill="#b06d6d" layoutX="269.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="318.98388671875">
          <font>
             <Font name="Chalkboard SE Light" size="17.0" />
          </font>

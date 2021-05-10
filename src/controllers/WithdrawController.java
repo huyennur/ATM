@@ -1,21 +1,21 @@
 package controllers;
 
 import ATM.Account;
-import ATM.Main;
-import ATM.Management;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static ATM.Main.*;
+
 
 public class WithdrawController {
 
-    Management m = new Management();
-    Account account = new Account();
     ArrayList<Account> list = m.insertData();
 
     @FXML
@@ -42,9 +42,9 @@ public class WithdrawController {
 
     @FXML
     public void endWithdrawal(ActionEvent event) throws IOException {
-        Main main = new Main();
         if(event.getSource() == endWithdraw) {
-            main.changeScene("../graphics/mainATM.fxml");
+            Parent pane = FXMLLoader.load(getClass().getResource("../graphics/afterLogin.fxml"));
+            stg.getScene().setRoot(pane);
         }
     }
 

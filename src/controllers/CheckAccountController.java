@@ -1,19 +1,19 @@
 package controllers;
 
-import ATM.Account;
 import ATM.Main;
-import ATM.Management;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class CheckAccountController {
+import static ATM.Main.account;
+import static ATM.Main.stg;
 
-    Account account = new Account();
-    Management management = new Management();
+public class CheckAccountController {
 
     @FXML
     private Button endCheckBalance;
@@ -33,9 +33,9 @@ public class CheckAccountController {
 
     @FXML
     public void endBalanceChecking(ActionEvent event) throws IOException {
-        Main main = new Main();
         if(event.getSource() == endCheckBalance) {
-            main.changeScene("../graphics/mainATM.fxml");
+            Parent pane = FXMLLoader.load(getClass().getResource("../graphics/afterLogin.fxml"));
+            stg.getScene().setRoot(pane);
         }
     }
 }

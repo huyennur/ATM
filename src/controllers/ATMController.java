@@ -5,7 +5,9 @@ import ATM.Main;
 import ATM.Management;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -14,10 +16,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ATMController implements Initializable {
+import static ATM.Main.stg;
+import static ATM.Main.account;
+import static ATM.Main.m;
 
-    Management m = new Management();
-    ArrayList<Account> list = m.insertData();
+public class ATMController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,8 +41,6 @@ public class ATMController implements Initializable {
 
     @FXML
     public void userLogin(ActionEvent event) throws Exception {
-        Main main = new Main();
-        Management m = new Management();
         ArrayList<Account> list = m.insertData();
         for (int i = 0; i < 5; i++) {
             int textID = Integer.parseInt(id.getText());
@@ -49,8 +50,11 @@ public class ATMController implements Initializable {
             }
 
             if (list.get(textID - 1).getPassword() == pass) {
-                inform.setText("Login success");
-                main.changeScene("../graphics/afterLogin.fxml");
+                inform.setText("Login successfully");
+                account = list.get(textID - 1);
+                System.out.println(account.balance);
+                Parent pane = FXMLLoader.load(getClass().getResource("../graphics/afterLogin.fxml"));
+                stg.getScene().setRoot(pane);
             } else {
                 inform.setText("PIN is incorrect!");
                 id.clear();
@@ -58,7 +62,6 @@ public class ATMController implements Initializable {
             }
         }
         inform.setText("Login unsuccessfully && the card is locked");
-        main.stop();
     }
 
 }

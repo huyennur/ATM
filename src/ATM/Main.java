@@ -10,7 +10,9 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private static Stage stg;
+    public static Stage stg;
+    public static Management m = new Management();
+    public static Account account = new Account();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,10 +25,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public void changeScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stg.getScene().setRoot(pane);
-    }
+//    public void changeScene(String fxml) throws IOException {
+//        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+//        stg.getScene().setRoot(pane);
+//    }
 
     public static void main(String[] args) {
         launch(args);

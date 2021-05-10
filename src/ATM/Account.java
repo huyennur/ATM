@@ -7,7 +7,7 @@ public class Account {
     private int ID; //STK
     private String name;
     private int password;
-    private double balance; //so du
+    public double balance; //so du
 
     public int getID() {
         return ID;
@@ -35,6 +35,7 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+        System.out.println(balance);
     }
 
     public void setPassword(int password) {
@@ -43,6 +44,7 @@ public class Account {
 
     //kiem tra thong tin tai khoan
     public String checkAccount() {
+        System.out.println(balance);
         return String.valueOf(balance);
     }
 
@@ -69,7 +71,7 @@ public class Account {
             } else {
                 list.get(index).balance += amount;
                 balance -= amount;
-                return "Transfer success.";
+                return "Transfer successfully! Your balance: " + balance + " VND!";
             }
         }
     }
@@ -99,7 +101,7 @@ public class Account {
             return "The amount must be a multiple of 50000";
         } else {
             balance -= amount;
-            return "Your account is deducted " + amount + " VND!";
+            return "Your account is deducted " + amount + " VND! Your balance: " + balance + " VND!";
         }
     }
 
@@ -113,7 +115,7 @@ public class Account {
             return "The amount is invalid.";
         } else {
             balance -= amount;
-            return "Your account paid " + amount + " VND!";
+            return "Your account paid " + amount + " VND! Your balance: " + balance + " VND!";
         }
     }
 
@@ -122,7 +124,7 @@ public class Account {
         else if (newPass2 != newPass) return "New PIN is invalid.";
         else {
             password = newPass;
-            return "Change PIN success.";
+            return "Change PIN successfully.";
         }
     }
 }
