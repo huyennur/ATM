@@ -7,6 +7,10 @@ import java.util.Scanner;
 
 public class Management {
     public ArrayList<Account> insertData() {
+        ReadDB readDB = new ReadDB();
+        readDB.connect();
+
+
         ArrayList<Account> listAcc = new ArrayList<>();
         try {
             Scanner scf = new Scanner(new File("D:\\react project\\ATM\\src\\ATM\\Account.txt"));
@@ -18,11 +22,12 @@ public class Management {
                 int so1 = s.indexOf("\t");
                 a.setID(Integer.parseInt(s.substring(0, so1)));
 
-                int so2 = s.indexOf("\t", so1 + 1);
-                a.setName(s.substring(so1 + 1, so2));
+                //int so2 = s.indexOf("\t", so1 + 1);a.setName(s.substring(so1 + 1, so2));
 
-                int so3 = s.indexOf("\t", so2 + 1);
-                a.setPassword(Integer.parseInt(s.substring(so2 + 1, so3)));
+                // sửa so1 thanh so2
+                int so3 = s.indexOf("\t", so1 + 1);
+                // sửa so1 thanh so2
+                a.setPassword(Integer.parseInt(s.substring(so1 + 1, so3)));
                 a.setBalance(Double.parseDouble(s.substring(so3 + 1)));
 
                 listAcc.add(a);
@@ -35,6 +40,10 @@ public class Management {
     }
 
     public Account login(ArrayList<Account> list) {
+
+
+        System.out.println("@22222 ");
+
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < 5; i++) {
